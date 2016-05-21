@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.ModuleDetailActivity">
+    <item android:id="@+id/day" android:title="Today"></item>
+    <item android:id="@+id/week" android:title="This Week"></item>
+    <item android:id="@+id/month" android:title="This Month"></item>
+</menu>

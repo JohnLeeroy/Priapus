@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Gainsboro"
+    tools:context="com.jli.gardener.activity.ModuleDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginBottom="12dp">
+
+            <ImageView
+                android:id="@+id/hub_image"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/example_hub" />
+
+            <TextView
+                android:id="@+id/hub_name"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignBottom="@+id/hub_image"
+                android:background="@color/transparent_black_percent_50"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="Backyard Garden"
+                android:textColor="@color/White"
+                android:textSize="24sp" />
+        </RelativeLayout>
+
+        <include layout="@layout/lighting_card"/>
+
+        <include layout="@layout/ambient_lighting_card"/>
+
+        <include layout="@layout/temperature_card"/>
+
+        <include layout="@layout/humidity_card"/>
+
+    </LinearLayout>
+</ScrollView>
