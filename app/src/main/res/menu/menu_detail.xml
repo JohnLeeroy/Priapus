@@ -4,18 +4,18 @@
     tools:context=".activity.ModuleDetailActivity">
     <item
         android:id="@+id/current_timeframe_title"
-        android:title="Today"
+        android:title="@string/timeframe_last_24hours"
         app:showAsAction="always|withText">
         <menu>
             <item
                 android:id="@+id/day"
-                android:title="Today"></item>
+                android:title="@string/timeframe_last_24hours"></item>
             <item
                 android:id="@+id/week"
-                android:title="Last 7 Days"></item>
+                android:title="@string/timeframe_last_week"></item>
             <item
                 android:id="@+id/month"
-                android:title="Last 30 Days"></item>
+                android:title="@string/timeframe_last_month"></item>
         </menu>
     </item>
 </menu>
