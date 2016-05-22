@@ -21,7 +21,6 @@ import com.jli.gardener.model.PlantModule;
 import com.jli.gardener.model.Record;
 import com.jli.gardener.util.RecordUtil;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
@@ -215,11 +214,11 @@ public class ModuleDetailActivity extends AppCompatActivity {
         for(int i = 0; i < records.size(); i++) {
             Record record = records.get(i);
             if(i == 0) {
-                dataset.addPoint("Yesterday", record.getTemperaturFah());
+                dataset.addPoint("Yesterday", record.getTemperaturFahrenheit());
             } else if(i == (records.size() -1)) {
-                dataset.addPoint("Now", record.getTemperaturFah());
+                dataset.addPoint("Now", record.getTemperaturFahrenheit());
             } else {
-                dataset.addPoint("", record.getTemperaturFah());
+                dataset.addPoint("", record.getTemperaturFahrenheit());
             }
         }
 

@@ -26,34 +26,36 @@ import java.util.Observer;
 public class MainActivity extends AppCompatActivity implements Observer {
 
     RecyclerView mHubRecyclerView;
-    HubAdapter hubAdapter;
+    HubAdapter mHubAdapter;
 
-    List<PlantModule> mockPlantHubs;
+    List<PlantModule> mMockPlantHubs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        setTitle("Papyrus");
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        bindUi();
+        bindAndInitUi();
         initializeData();
     }
 
-    void bindUi() {
-        mockPlantHubs = new ArrayList<>();
+    void bindAndInitUi() {
+        setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //Show stubbed plants so we dont have an empty screen
+        mMockPlantHubs = new ArrayList<>();
         PlantModule mockPlantHub = new PlantModule("Backyard Garden");
-        mockPlantHubs.add(mockPlantHub);
+        mMockPlantHubs.add(mockPlantHub);
 
         PlantModule mockPlantHubTwo = new PlantModule("Side Garden");
-        mockPlantHubs.add(mockPlantHubTwo);
+        mMockPlantHubs.add(mockPlantHubTwo);
 
         mHubRecyclerView = (RecyclerView) findViewById(R.id.hub_recycler_view);
         mHubRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        hubAdapter = new HubAdapter(mockPlantHubs, new ClickListenerImpl());
-        mHubRecyclerView.setAdapter(hubAdapter);
+        mHubAdapter = new HubAdapter(mMockPlantHubs, new ClickListenerImpl());
+        mHubRecyclerView.setAdapter(mHubAdapter);
     }
 
     void initializeData() {
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements Observer {
     @Override
     public void update(Observable observable, Object data) {
         List<PlantModule> modules = RecordManager.getInstance().getPlantModules();
-        hubAdapter.setData(modules);
+        mHubAdapter.setData(modules);
     }
 
     class ClickListenerImpl implements HubCardViewHolder.IClickListener {
@@ -86,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements Observer {
         public void onClick(HubCardViewHolder viewHolder, int position) {
             Intent intent = new Intent(MainActivity.this, ModuleDetailActivity.class);
 
-            PlantModule module = hubAdapter.getData().get(position);
+            PlantModule module = mHubAdapter.getData().get(position);
             Bundle bundle = new Bundle();
             bundle.putParcelable("module", module);
             intent.putExtras(bundle);
@@ -97,23 +99,16 @@ public class MainActivity extends AppCompatActivity implements Observer {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

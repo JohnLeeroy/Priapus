@@ -19,29 +19,23 @@ import java.util.List;
 public class HubAdapter extends RecyclerView.Adapter<HubCardViewHolder> {
     private List<PlantModule> mDataset;
 
-    private HubCardViewHolder.IClickListener clickListener;
+    private HubCardViewHolder.IClickListener mClickListener;
 
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public HubAdapter(List<PlantModule> myDataset, HubCardViewHolder.IClickListener clickListener) {
+    public HubAdapter(List<PlantModule> myDataset, HubCardViewHolder.IClickListener mClickListener) {
         mDataset = myDataset;
-        this.clickListener = clickListener;
+        this.mClickListener = mClickListener;
     }
 
-    // Create new views (invoked by the layout manager)
     @Override
     public HubCardViewHolder onCreateViewHolder(ViewGroup parent,
                                                              int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.hub_card, parent, false);
-        HubCardViewHolder vh = new HubCardViewHolder(view, clickListener);
+        HubCardViewHolder vh = new HubCardViewHolder(view, mClickListener);
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(HubCardViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        //holder.mTextView.setText(mDataset.get(position));
         PlantModule hub = mDataset.get(position);
         TextView name = (TextView)holder.mRootView.findViewById(R.id.hub_name);
         ImageView image = (ImageView)holder.mRootView.findViewById(R.id.hub_image);
@@ -66,7 +60,6 @@ public class HubAdapter extends RecyclerView.Adapter<HubCardViewHolder> {
         }
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return mDataset.size();

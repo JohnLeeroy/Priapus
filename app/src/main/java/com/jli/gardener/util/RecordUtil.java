@@ -14,7 +14,7 @@ public class RecordUtil {
     public static List<Record> getRecordsBetweenDates(List<Record> records, Date start, Date end) {
         List<Record> result = new ArrayList<>();
         for(Record record : records) {
-            Date recordDate = record.getDate();
+            Date recordDate = record.getTimestampDate();
             if(recordDate.after(start) && recordDate.before(end)) {
                 result.add(record);
             }

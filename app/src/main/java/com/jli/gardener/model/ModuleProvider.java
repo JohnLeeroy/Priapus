@@ -2,7 +2,7 @@ package com.jli.gardener.model;
 
 import android.content.Context;
 
-import com.jli.gardener.network.PlantHerokuService;
+import com.jli.gardener.network.ModuleHerokuService;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -25,7 +25,7 @@ public class ModuleProvider {
     private static final int READ_TIMEOUT = 30;
     private static final long CACHE_SIZE = 4 * 1024 * 1024; // 10 MB
 
-    PlantHerokuService service;
+    ModuleHerokuService service;
 
     public interface ReportHandler {
         void onResult(boolean isSuccessful, Report result);
@@ -47,7 +47,7 @@ public class ModuleProvider {
                 .client(client)
                 .build();
 
-        service = retrofit.create(PlantHerokuService.class);
+        service = retrofit.create(ModuleHerokuService.class);
     }
 
     public void getLatestReport(final ReportHandler handler) {

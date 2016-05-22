@@ -40,14 +40,6 @@ public class Record implements Parcelable, Comparable<Record>{
     @SerializedName("temperature_f")
     float temperaturFah;
 
-    public float getTemperaturC() {
-        return temperaturC;
-    }
-
-    public void setTemperaturC(float temperaturC) {
-        this.temperaturC = temperaturC;
-    }
-
     @SerializedName("temperature_c")
     float temperaturC;
 
@@ -103,7 +95,7 @@ public class Record implements Parcelable, Comparable<Record>{
         return another.timestamp.compareTo(timestamp);
     }
 
-    public Date getDate() {
+    public Date getTimestampDate() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 
         Date date = null;
@@ -115,17 +107,8 @@ public class Record implements Parcelable, Comparable<Record>{
         return date;
     }
 
-
     public String getId() {
         return id;
-    }
-
-    public float getTemperaturFahrenheit() {
-        return temperaturFah;
-    }
-
-    public void setTemperaturFah(float temperaturFah) {
-        this.temperaturFah = temperaturFah;
     }
 
     public float getHumidity() {
@@ -135,8 +118,6 @@ public class Record implements Parcelable, Comparable<Record>{
     public void setHumidity(float humidity) {
         this.humidity = humidity;
     }
-
-
 
     public void setId(String id) {
         this.id = id;
@@ -190,8 +171,16 @@ public class Record implements Parcelable, Comparable<Record>{
         this.soil = soil;
     }
 
-    public float getTemperaturFah() {
+    public float getTemperaturFahrenheit() {
         return temperaturFah;
+    }
+
+    public float getTemperaturC() {
+        return temperaturC;
+    }
+
+    public void setTemperaturC(float temperaturC) {
+        this.temperaturC = temperaturC;
     }
 
     public int getRain() {
