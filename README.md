@@ -19,4 +19,5 @@ Use Android Studio or the gradle wrapper script.
 `gradlew.bat assembleDebug`
 
 Works in conjunction with the Priapus server
-[Web server repo](https://github.com/Studnicky/Priapus)
+
+[https://github.com/Studnicky/Priapus](https://github.com/Studnicky/Priapus)
