@@ -23,6 +23,5 @@ Works in conjunction with the Priapus server
 
 ## Screenshots
 <img src="http://i.imgur.com/baO12JJ.png" width="360" height="720">
-![alt text](http://i.imgur.com/baO12JJ.png "Main Activity")
-![alt text](http://i.imgur.com/VuiYBYG.png "Detail Activity")
+<img src="http://i.imgur.com/VuiYBYG.png" width="360" height="720">
 
