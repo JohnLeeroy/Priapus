@@ -22,6 +22,6 @@ Works in conjunction with the Priapus server
 [https://github.com/Studnicky/Priapus](https://github.com/Studnicky/Priapus)
 
 ## Screenshots
-<img src="http://i.imgur.com/baO12JJ.png" width="360" height="720">
-<img src="http://i.imgur.com/VuiYBYG.png" width="360" height="720">
+<img src="http://i.imgur.com/baO12JJ.png" width="360" height="640">
+<img src="http://i.imgur.com/VuiYBYG.png" width="360" height="640">
 
